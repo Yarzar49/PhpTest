@@ -65,5 +65,134 @@ define("PI", 3.14);
 echo PI;
 //Constant End
 
+//Strings and Arrays start
+
+$name = "Alice";
+$role = "Web Developer";
+$company = "Acme Inc";
+
+//variable can write in double quote
+echo "$name, $role, $company";
+
+//default function and method
+echo strlen($name);
+
+echo substr($name,1,1);
+
+echo str_replace("i","c",$name);
+
+//Array
+
+$users = array("Alice", "Bob");
+
+$fruits = ["Apple", "Orange"];
+
+print_r($fruits); //value
+
+var_dump($fruits); // data type and value
+
+//Associative array
+
+$user = [
+    "name" => "alice",
+    "age" => "22",
+];
+
+print_r($user);
+echo $user["name"];
+
+$users = [
+    $user = [
+        "name" => "alice",
+        "age" => "22",
+    ],
+    $user = [
+        "name" => "alice",
+        "age" => "22",
+    ],
+    $user = [
+        "name" => "alice",
+        "age" => "22",
+    ],   
+
+];
+
+print_r($users);
+echo $users[0] ["name"];
+
+//Array destructuring
+
+$user = ["Alice", 22];
+
+[$name, $age] = $user;
+
+echo $name;
+
+$user = ["name" => "Alice", "age" => 22];
+["name"=>$name, "age" =>$age] =$user;
+
+//Array Spread...
+$nums1 = [1, 2];
+$nums2 = [...$nums1, 3];
+
+print_r($nums2);
+
+//array count
+$nums = [1, 2, 3, 4];
+
+echo count($nums);
+
+//check have? or have not?
+$users = ["alice", "bob"];
+
+echo is_array($users);
+
+//check value
+
+echo in_array("bob",$users);
+
+echo array_search("alice", $users); //return index
+
+$users = ["alice", "bob"];
+
+array_push($users,"tom");
+array_pop($users);
+
+array_unshift($users, "Foo");
+array_shift();
+
+//array_splice
+$users = ["tom", "bob", "alice"];
+$result = array_splice($users,1,1);
+
+$user = ["name" => "alice", "age" => 22];
+
+$keys = array_keys($user);
+$values = array_values($user);
+
+//sorting sort(ascen) rsort(descen)
+
+$users = ["tom" => 23, "bob" =>22];
+sort($users);
+
+rsort($users);
+
+//ksort()  for index
+//krsort() for index
+
+//explode and implode
+
+$input = "A quick brown fox";
+$arr = $input.explode(" ", $input);
+
+$str = $arr.implode(" ", $arr);
+
+//Strings and array end
+
+
+
+
+
+
 
 ?>
