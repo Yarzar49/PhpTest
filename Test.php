@@ -159,7 +159,7 @@ array_push($users,"tom");
 array_pop($users);
 
 array_unshift($users, "Foo");
-array_shift();
+array_shift($users);
 
 //array_splice
 $users = ["tom", "bob", "alice"];
@@ -183,11 +183,126 @@ rsort($users);
 //explode and implode
 
 $input = "A quick brown fox";
-$arr = $input.explode(" ", $input);
+$arr = explode(" ", $input);
 
-$str = $arr.implode(" ", $arr);
+$str =implode(" ", $arr);
 
 //Strings and array end
+
+//Operators and Control Structures Start
+
+// /!= or <> not equal operator
+
+//Spaceship Operator
+
+echo 3<=>5; //-1
+echo 5<=>5;//0
+echo 5<=>3;//1
+
+//Logical Operator
+
+//Ternary operator (Conditional expression)
+
+$name = "Alice";
+echo $name? $name : "Unkown";
+echo $name?: "Unkown";
+
+echo isset($name)? $name : "Unkown";
+
+//Null Coalescing assignment Operator (Conditional expression) ??=
+
+$result = "Alice";
+$result ??= $name;
+
+//else if statement
+$score = '60';
+
+if ($score >= 90) {
+    $grade = "A";
+} elseif ($score >= 80) {
+    $grade = "B";
+} elseif ($score >= 70) {
+    $grade = "C";
+} elseif ($score >= 60) {
+    $grade = "D";
+} else {
+    $grade = "F";
+}
+
+
+//Switch
+
+$day = date("D");
+
+switch ($day) {
+    case "Monday":
+        echo "Today is Monday";
+        break;
+    case "Tuesday":
+        echo "Today is Tuesday";
+        break;
+    case "Wednesday":
+        echo "Today is Wednesday";
+        break;
+    case "Thursday":
+        echo "Today is Thursday";
+        break;
+    case "Friday":
+        echo "Today is Friday";
+        break;
+    default:
+        echo "It's the weekend!";
+        break;
+}
+
+$result = match($day) {
+    "Monday", "Tuesday", "Wednesday","Thursday", "Friday" => "Weekday",
+    default => "Weekend",
+};
+
+echo $result;
+
+//looping
+
+//while
+ $nums = [12, 42, -2, 8, 621];
+
+ $i = 0;
+
+$result = 0;
+
+while($i < count($nums)) {
+    if($nums[$i] < 0) {
+        $i++;
+        continue;
+    }
+    $result  += $nums[$i];
+    $i++;
+}
+
+echo $result; 
+
+$user = ["alice" => 98, "bob" => 95];
+$result = [];
+
+foreach($user as $name=>$point) {
+    $result[] = $name;
+}
+
+print_r($result);
+
+print_r( array_keys($user));
+
+//Operations and Control Structures End
+
+
+
+
+
+ 
+
+
+
 
 
 
