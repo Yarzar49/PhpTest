@@ -295,11 +295,122 @@ print_r( array_keys($user));
 
 //Operations and Control Structures End
 
+//Functions start
+echo '<br>';
+$a = [5, 2, 3, 4, 5];
 
 
+$r = array_reduce($a, function($carry, $item) {
+    echo $carry;
+    echo '<br>';
+    return $carry + $item;
+});
 
-
+echo $r;
  
+//default parameter
+
+function add($a, $b = 1) {
+    echo $a+ $b;
+}
+
+add(1);
+//Rest parameter
+function sum($a, ...$b) {
+    print_r($b);
+}
+
+sum(1, 2, 3, 4, 5, 6, 7);
+
+//Type Hinting
+
+function arrayAdd(Array $arr)  {
+    return array_sum($arr);
+} 
+
+arrayAdd([1, 2, 3]);
+
+//Return type hinting
+
+function arrayAdd1(Array $arr): string  {
+    return array_sum($arr);
+} 
+
+$r1 = arrayAdd1([1, 2, 3]);
+
+var_dump($r1);
+
+//Union Type(more than one type hint)
+
+function price(int | float $n) {
+    return "Price is  \$$n";
+}
+
+echo price(3.1); // Price is $3.1
+echo price(2); 
+
+//Pass by Value, Pass by Reference
+
+$name = "Alice";
+function hello1(&$n) { //the whole variable
+    $n = "BOB";
+    echo $n;
+}
+
+hello1($name);
+echo $name;
+
+//Variable function
+
+function add2($a, $b) {
+    echo $a + $b;
+}
+
+$name = "add2";
+$name(1, 2);
+
+//Function Expression (Nameless Functin or Anonymous function)
+
+$nums = [1, 2, 3, 4];
+$result = array_map(function($n) {
+    return $n *2;
+},$nums); //callback function
+
+print_r($result);
+
+$two = function($n) {
+    echo $n * 2;
+};
+
+$two(2);
+
+//use statement in function expression
+$name = "Alice";
+$hello = function() use ($name){
+    echo "Hello $name";
+};
+
+$hello(); 
+
+//arrow function
+$twp = fn ($n) => $n * 2;
+
+//can use direct global variable
+$x = 3;
+$add = fn ($y) => $x + $y;
+
+echo add(3);
+
+//Named Arguments
+
+function profile($name, $email, $age) {
+    echo "$name ($age) @ $email";
+}
+
+profile(age: 23, name: "Bob", email: ".com");
+
+
+
 
 
 
